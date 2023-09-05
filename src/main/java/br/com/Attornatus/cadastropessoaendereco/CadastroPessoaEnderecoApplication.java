@@ -18,5 +18,4 @@ public class CadastroPessoaEnderecoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CadastroPessoaEnderecoApplication.class, args);
 	}
-
 }
