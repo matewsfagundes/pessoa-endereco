@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/v1/pessoa")
 public interface pessoaAPI {
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
-	PessoaResponse postPessoa(@RequestBody PessoaRequest pessoaRequest);
+	PessoaResponse postPessoa(@Valid @RequestBody PessoaRequest pessoaRequest);
 }
