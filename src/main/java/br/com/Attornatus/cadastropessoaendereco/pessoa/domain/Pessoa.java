@@ -3,6 +3,7 @@ package br.com.Attornatus.cadastropessoaendereco.pessoa.domain;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import br.com.Attornatus.cadastropessoaendereco.pessoa.application.api.PessoaRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,7 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @Entity
-public class pessoa {
+public class Pessoa {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,11 +28,9 @@ public class pessoa {
 	private String nomeCompleto;
 	@NotNull
 	private LocalDate dataNascimento;
-	
-	private pessoa(UUID idPessoa, @NotBlank String nomeCompleto, @NotNull LocalDate dataNascimento) {
-		this.idPessoa = idPessoa;
-		this.nomeCompleto = nomeCompleto;
-		this.dataNascimento = dataNascimento;
-	}
 
+	public Pessoa(PessoaRequest pessoaRequest) {
+		this.nomeCompleto = pessoaRequest.getNomeCompleto();
+		this.dataNascimento = pessoaRequest.getDataNascimento();
+	}
 }
