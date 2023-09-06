@@ -28,8 +28,8 @@ public class pessoa {
 	@NotNull
 	private LocalDate dataNascimento;
 	
-	private pessoa(UUID idCliente, @NotBlank String nomeCompleto, @NotNull LocalDate dataNascimento) {
-		this.idPessoa = idCliente;
+	private pessoa(UUID idPessoa, @NotBlank String nomeCompleto, @NotNull LocalDate dataNascimento) {
+		this.idPessoa = idPessoa;
 		this.nomeCompleto = nomeCompleto;
 		this.dataNascimento = dataNascimento;
 	}
