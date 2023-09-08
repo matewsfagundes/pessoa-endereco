@@ -35,7 +35,8 @@ public class PessoaController implements PessoaAPI {
 	public PessoaDetalhadoResponse getPesssoaAtravesId(UUID idPessoa) {
 		log.info("[inicia] PessoaController - getTodasPessoas");
 		log.info("[IdPessoa] {}", idPessoa);
+		PessoaDetalhadoResponse pessoaDetalhado = pessoaService.buscaPessoaAtravesId(idPessoa);
 		log.info("[finaliza] PessoaController - getTodasPessoas");
-		return null;
+		return pessoaDetalhado;
 	}
 }
