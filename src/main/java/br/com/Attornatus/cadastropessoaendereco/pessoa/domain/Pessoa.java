@@ -3,6 +3,7 @@ package br.com.Attornatus.cadastropessoaendereco.pessoa.domain;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import br.com.Attornatus.cadastropessoaendereco.pessoa.application.api.PessoaAlteracaoRequest;
 import br.com.Attornatus.cadastropessoaendereco.pessoa.application.api.PessoaRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -31,6 +32,11 @@ public class Pessoa {
 	private LocalDate dataNascimento;
 
 	public Pessoa(PessoaRequest pessoaRequest) {
+		this.nomeCompleto = pessoaRequest.getNomeCompleto();
+		this.dataNascimento = pessoaRequest.getDataNascimento();
+	}
+
+	public void altera(PessoaAlteracaoRequest pessoaRequest) {
 		this.nomeCompleto = pessoaRequest.getNomeCompleto();
 		this.dataNascimento = pessoaRequest.getDataNascimento();
 	}

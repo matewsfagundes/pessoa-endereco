@@ -53,6 +53,6 @@ public class PessoaInfraRepository implements PessoaRepository {
 	public void deletaPessoa(Pessoa pessoa) {
 		log.info("[inicia] PessoaInfraRepository - deletaPessoa");
 		pessoaSPringJPARepository.delete(pessoa);
-		log.info("[inicia] PessoaInfraRepository - deletaPessoa");
+		log.info("[finaliza] PessoaInfraRepository - deletaPessoa");
 	}
 }
