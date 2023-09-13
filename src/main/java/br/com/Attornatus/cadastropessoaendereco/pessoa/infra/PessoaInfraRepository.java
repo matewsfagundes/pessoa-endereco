@@ -3,6 +3,7 @@ package br.com.Attornatus.cadastropessoaendereco.pessoa.infra;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
@@ -21,8 +22,12 @@ public class PessoaInfraRepository implements PessoaRepository {
 
 	@Override
 	public Pessoa salva(Pessoa pessoa) {
+		try {
 		log.info("[inicia] PessoaInfraRepository - salva");
 		pessoaSPringJPARepository.save(pessoa);
+		} catch (DataIntegrityViolationException e) {
+			throw APIException.build(HttpStatus.BAD_REQUEST, "Existem dados duplicados", e);
+		}
 		log.info("[finaliza] PessoaInfraRepository - salva");
 		return pessoa;
 	}
@@ -49,6 +54,5 @@ public class PessoaInfraRepository implements PessoaRepository {
 		log.info("[inicia] PessoaInfraRepository - deletaPessoa");
 		pessoaSPringJPARepository.delete(pessoa);
 		log.info("[inicia] PessoaInfraRepository - deletaPessoa");
-		
 	}
 }
