@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.Attornatus.cadastropessoaendereco.pessoa.application.service.PessoaService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -47,5 +48,12 @@ public class PessoaController implements PessoaAPI {
 		pessoaService.deletaPessoaAtravesId(idPessoa);
 		log.info("[finaliza] PessoaController - deletaPesssoaAtravesId");
 		
+	}
+
+	@Override
+	public void patchAlteraPessoa(UUID idPessoa, @Valid PessoaAlteracaoRequest pessoaAlteracaoRequest) {
+		log.info("[inicia] PessoaController - patchAlteraPessoa");
+		log.info("[IdPessoa] {}", idPessoa);
+		log.info("[inicia] PessoaController - patchAlteraPessoa");
 	}
 }
