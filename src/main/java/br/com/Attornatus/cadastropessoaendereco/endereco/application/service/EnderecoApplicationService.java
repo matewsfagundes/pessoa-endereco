@@ -1,11 +1,13 @@
 package br.com.Attornatus.cadastropessoaendereco.endereco.application.service;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
 import br.com.Attornatus.cadastropessoaendereco.endereco.application.api.EnderecoRequest;
 import br.com.Attornatus.cadastropessoaendereco.endereco.application.api.EnderecoResponse;
+import br.com.Attornatus.cadastropessoaendereco.endereco.application.api.ListaEnderecosResponse;
 import br.com.Attornatus.cadastropessoaendereco.endereco.application.repository.EnderecoRepository;
 import br.com.Attornatus.cadastropessoaendereco.endereco.domain.Endereco;
 import br.com.Attornatus.cadastropessoaendereco.pessoa.application.service.PessoaService;
@@ -29,4 +31,12 @@ public class EnderecoApplicationService implements EnderecoService {
 		return new EnderecoResponse(endereco.getIdEndereco());
 	}
 
+	@Override
+	public List<ListaEnderecosResponse> listaEnderecosDaPessoa(UUID idPessoa) {
+		log.info("[inicia] EnderecoApplicationService - listaEnderecosDaPessoa");
+		pessoaService.buscaPessoaAtravesId(idPessoa);
+		List<Endereco> enderecos = enderecoRepository.listaEnderecosDaPessoa(idPessoa);
+		log.info("[finaliza] EnderecoApplicationService - listaEnderecosDaPessoa");
+		return ListaEnderecosResponse.converte(enderecos);
+	}
 }
