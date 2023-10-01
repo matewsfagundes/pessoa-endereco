@@ -1,4 +1,4 @@
-package br.com.Attornatus.cadastropessoaendereco.endereco.api;
+package br.com.Attornatus.cadastropessoaendereco.endereco.application.api;
 
 import java.util.UUID;
 

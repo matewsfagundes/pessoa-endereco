@@ -1,4 +1,4 @@
-package br.com.Attornatus.cadastropessoaendereco.endereco.api;
+package br.com.Attornatus.cadastropessoaendereco.endereco.application.api;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
