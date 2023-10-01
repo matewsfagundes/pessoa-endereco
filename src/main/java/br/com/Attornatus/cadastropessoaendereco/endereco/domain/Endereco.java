@@ -40,4 +40,12 @@ public class Endereco {
 		this.cidade = enderecoRequest.getCidade();
 		this.tipoEndereco = enderecoRequest.getTipoEndereco();
 	}
+
+	public void altera(EnderecoRequest enderecoRequest) {
+		this.lagradouro = enderecoRequest.getLagradouro();
+		this.cep = enderecoRequest.getCep();
+		this.numero = enderecoRequest.getNumero();
+		this.cidade = enderecoRequest.getCidade();
+		this.tipoEndereco = enderecoRequest.getTipoEndereco();
+	}
 }

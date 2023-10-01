@@ -11,5 +11,6 @@ public interface EnderecoService {
 
 	EnderecoResponse criaEndereco(UUID idPessoa, EnderecoRequest enderecoRequest);
 	List<ListaEnderecosResponse> listaEnderecosDaPessoa(UUID idPessoa);
+	void patchAlteraEndereco(UUID idEndereco, EnderecoRequest enderecoRequest);
 
 }

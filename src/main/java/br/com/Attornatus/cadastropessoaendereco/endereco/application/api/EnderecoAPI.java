@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,4 +27,10 @@ public interface EnderecoAPI {
 	@GetMapping(value = "/{idPessoa}")
 	@ResponseStatus(code = HttpStatus.OK)
 	List<ListaEnderecosResponse> listaEnderecosDaPessoa(@PathVariable UUID idPessoa);
+	
+	@PatchMapping(value = "/{idEndereco}")
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+	void patchAlteraEndereco(@PathVariable UUID idEndereco, 
+			@Valid @RequestBody EnderecoRequest enderecoRequest);
+	
 }

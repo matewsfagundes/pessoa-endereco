@@ -39,4 +39,13 @@ public class EnderecoApplicationService implements EnderecoService {
 		log.info("[finaliza] EnderecoApplicationService - listaEnderecosDaPessoa");
 		return ListaEnderecosResponse.converte(enderecos);
 	}
+
+	@Override
+	public void patchAlteraEndereco(UUID idEndereco, EnderecoRequest enderecoRequest) {
+		log.info("[inicia] EnderecoApplicationService - patchAlteraEndereco");
+		Endereco endereco = enderecoRepository.buscaEnderecoId(idEndereco);
+		endereco.altera(enderecoRequest);
+		enderecoRepository.salvaEndereco(endereco);
+		log.info("[finaliza] EnderecoApplicationService - patchAlteraEndereco");
+	}
 }
